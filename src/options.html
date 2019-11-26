@@ -41,6 +41,18 @@
 					<button class="enableShortcut" class="browser-style" hidden>Enable</button>
 				</form>
 			</div>
+			<script>
+				document.write([...Array(10).keys()].map(x => `<div class="keyboardShortcuts">
+				<form id="activate-group-${x + 1}" class="browser-style">
+					<label for="activate-group-${x + 1}">Activate Tab Group #${x + 1}</label>
+					<input type="text">
+					<button class="updateShortcut" class="browser-style">Update</button>
+					<button class="resetShortcut" class="browser-style">Reset</button>
+					<button class="disableShortcut" class="browser-style">Disable</button>
+					<button class="enableShortcut" class="browser-style" hidden>Enable</button>
+				</form>
+			</div>`).join('\n'))
+			</script>
 		</section>
 		<section id="optionsTheme">
 			<h2>Theme</h2>

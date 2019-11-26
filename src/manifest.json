@@ -36,6 +36,15 @@
             },
             "description": "Switch to the previous Tab Group"
         }
+        ,"activate-group-n1": { "suggested_key": { "default": "Alt+1" }, "description": "Switch to the first Tab Group" }
+        ,"activate-group-n2": { "suggested_key": { "default": "Alt+2" }, "description": "Switch to the second Tab Group" }
+        ,"activate-group-n3": { "suggested_key": { "default": "Alt+3" }, "description": "Switch to the third Tab Group" }
+        ,"activate-group-n4": { "suggested_key": { "default": "Alt+4" }, "description": "Switch to the fourth Tab Group" }
+        ,"activate-group-n5": { "suggested_key": { "default": "Alt+5" }, "description": "Switch to the fifth Tab Group" }
+        ,"activate-group-n6": { "suggested_key": { "default": "Alt+6" }, "description": "Switch to the sixth Tab Group" }
+        ,"activate-group-n7": { "suggested_key": { "default": "Alt+7" }, "description": "Switch to the seventh Tab Group" }
+        ,"activate-group-n8": { "suggested_key": { "default": "Alt+8" }, "description": "Switch to the eight Tab Group" }
+        ,"activate-group-n9": { "suggested_key": { "default": "Alt+9" }, "description": "Switch to the nineth Tab Group" }
     },
 
     "background": {

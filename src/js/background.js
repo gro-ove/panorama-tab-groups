@@ -155,11 +155,25 @@ async function triggerCommand(command) {
     await changeActiveGroupBy(1);
   } else if (command === "activate-previous-group") {
     await changeActiveGroupBy(-1);
+  } else if (/^activate-group-n([1-9])$/.test(command)) { 
+      await changeActiveGroupTo(RegExp.$1 - 1);
   } else if (command === "toggle-panorama-view") {
     await toggleView();
   }
 }
 
+
+/** Change current active group */
+async function changeActiveGroupTo(index) {
+    const windowId = (await browser.windows.getCurrent()).id;
+    const groups = await browser.sessions.getWindowValue(windowId, 'groups');
+    let activeGroup = (await browser.sessions.getWindowValue(windowId, 'activeGroup'));
+
+    activeGroup = groups[mod(index, groups.length)].id;
+    await browser.sessions.setWindowValue(windowId, 'activeGroup', activeGroup);
+
+    await toggleVisibleTabs(activeGroup, true);
+}
 
 /** Shift current active group by offset */
 async function changeActiveGroupBy(offset) {
@@ -479,6 +493,7 @@ function handleMessage(message, sender) {
     else if (message == "activate-previous-group") {
         triggerCommand("activate-previous-group");
     }
+    else if (/^activate-group-n[1-9]$/.test(message)) { triggerCommand(message); }
 }
 
 browser.runtime.onMessageExternal.addListener(handleMessage);
